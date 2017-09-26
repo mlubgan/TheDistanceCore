@@ -134,7 +134,7 @@ class ConstraintsTests: XCTestCase {
             multiplier: 1.0,
             constant: -20)
         
-        let constrsRel = NSLayoutConstraint.constraintsToAlign(view: view1, to: view2, withInsets: UIEdgeInsetsMake(5, 10, 15, 20), relativeToMargin: (true, true, true, true))
+        let constrsRel = NSLayoutConstraint.constraintsToAlign(view: view1, to: view2, withInsets: UIEdgeInsetsMake(5, 10, 15, 20), relativeToMarginVertical: (true, true), relativeToMarginHorizontal: (true, true))
         
         
         XCTAssert([cTopRel, cLeadRel, cBottomRel, cTrailRel] == constrsRel)

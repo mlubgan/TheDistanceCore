@@ -135,14 +135,14 @@ public extension NSLayoutConstraint {
      - returns: An array of `NSLayoutConstraint`s, ordered: top, left, bottom, right.
      
     */
-    public static func constraintsToAlign(view view1:UIView, to view2:UIView, withInsets insets:UIEdgeInsets = UIEdgeInsets.zero, relativeToMargin:(top:Bool, left:Bool, bottom:Bool, right:Bool) = (false, false, false, false)) -> [NSLayoutConstraint] {
+    public static func constraintsToAlign(view view1:UIView, to view2:UIView, withInsets insets:UIEdgeInsets = UIEdgeInsets.zero, relativeToMarginVertical:(top:Bool, bottom:Bool)  = (false, false), relativeToMarginHorizontal: (left:Bool, right:Bool) = (false, false)) -> [NSLayoutConstraint] {
         
         var constraints = [NSLayoutConstraint]()
         
-        let topAttribute:NSLayoutAttribute = relativeToMargin.top ? .topMargin : .top
-        let leadingAttribute:NSLayoutAttribute = relativeToMargin.left ? .leadingMargin : .leading
-        let bottomAttribute:NSLayoutAttribute = relativeToMargin.bottom ? .bottomMargin : .bottom
-        let trailingAttribute:NSLayoutAttribute = relativeToMargin.right ? .trailingMargin : .trailing
+        let topAttribute:NSLayoutAttribute = relativeToMarginVertical.top ? .topMargin : .top
+        let leadingAttribute:NSLayoutAttribute = relativeToMarginHorizontal.left ? .leadingMargin : .leading
+        let bottomAttribute:NSLayoutAttribute = relativeToMarginVertical.bottom ? .bottomMargin : .bottom
+        let trailingAttribute:NSLayoutAttribute = relativeToMarginHorizontal.right ? .trailingMargin : .trailing
         
         constraints.append(NSLayoutConstraint(item:view1,
             attribute:.top,
